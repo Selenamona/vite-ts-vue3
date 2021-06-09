@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
-const constantFiles = require.context("./", true, /\.ts$/);
-console.log("🚀 ~ file: index.ts ~ line 3 ~ constantFiles", constantFiles);
+// const constantFiles = require.context("./", true, /\.ts$/);
+// console.log("🚀 ~ file: index.ts ~ line 3 ~ constantFiles", constantFiles);
 
 const routes = [
   {

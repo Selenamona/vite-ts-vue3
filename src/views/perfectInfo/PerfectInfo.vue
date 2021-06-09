@@ -24,9 +24,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from '../../store/index'
 export default defineComponent({
   setup(props) {
     console.log("🚀  ~ props", props);
+    const store = useStore()
+    console.log(store.state.count);
   }
 });
 </script>
