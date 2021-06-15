@@ -8,7 +8,11 @@ const routes = [
     path: "/",
     name: "PerfectInfo",
     component: () => import("@/views/perfectInfo/PerfectInfo.vue")
-  }
+  }, {
+    path: "/ts",
+    name: "TsBasic",
+    component: () => import("@/views/tsBasic/TsBasic.vue")
+  },
 ];
 
 const Router = createRouter({
