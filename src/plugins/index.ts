@@ -6,9 +6,7 @@ import { createApp } from 'vue'
  */
 export function loadAllPlugins(app: ReturnType<typeof createApp>) {
   const files = import.meta.globEager(('./*.ts'))
-  console.log(files, Object.keys(files));
   Object.keys(files).forEach(k => {
-    console.log(k);
     files[k].default(app)
   })
 }

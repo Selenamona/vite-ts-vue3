@@ -1,25 +1,12 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
-// const constantFiles = require.context("./", true, /\.ts$/);
-// console.log("🚀 ~ file: index.ts ~ line 3 ~ constantFiles", constantFiles);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: () => import("@/views/home/Home.vue")
-  },
-  {
-    path: "/perfectInfo",
-    name: "PerfectInfo",
-    component: () => import("@/views/perfectInfo/PerfectInfo.vue")
-  },
-  {
-    path: "/ts",
-    name: "TsBasic",
-    component: () => import("@/views/tsBasic/TsBasic.vue")
-  }
-];
+// import.meta.globEager 函数从文件系统导入多个模块
+const constantFiles = import.meta.globEager("./*.ts");
+let routes: Array<RouteRecordRaw> = []
+Object.keys(constantFiles).forEach(k => {
+  routes = routes.concat(constantFiles[k].default)
+})
 
 const Router = createRouter({
   history: createWebHashHistory(),
