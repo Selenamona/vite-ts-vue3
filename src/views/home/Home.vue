@@ -1,7 +1,7 @@
 <!-- 首页 -->
 <template>
   <div class="Home">
-    <TopHeader :active="1" />
+    <TopHeader :active="0" />
     <CarouselVue />
   </div>
 </template>
