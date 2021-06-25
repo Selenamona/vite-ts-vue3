@@ -36,12 +36,6 @@ Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
 安装：`npm install vuex@next --save`
 
 
-
-遗留问题：
-require.content
-
-
-
 ## element-plus
 
 `npm install element-plus --save`

@@ -1,15 +1,17 @@
 <!-- 首页 -->
 <template>
   <div class="Home">
+    <TopHeader :active="1" />
     <CarouselVue />
   </div>
 </template>
 
 <script lang="ts">
-import CarouselVue from "./components/Carousel.vue";
+import CarouselVue from "@/components/Carousel.vue";
+import TopHeader from "@/components/TopHeader.vue";
 export default {
   name: 'Home',
-  components: { CarouselVue }
+  components: { CarouselVue, TopHeader }
 };
 </script>
 <style lang='scss' scoped>
