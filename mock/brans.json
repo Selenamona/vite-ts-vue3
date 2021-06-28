@@ -1,0 +1,109 @@
+{
+  "code": 0,
+  "message": "成功",
+  "data": {
+    "rowCount": 7,
+    "pageCount": 1,
+    "pageIndex": 1,
+    "dataList": [{
+        "id": 8,
+        "name": "大众",
+        "clickRank": 100,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_8_100.png",
+        "spell": "volkswagen"
+      },
+      {
+        "id": 2,
+        "name": "奔驰",
+        "clickRank": 99,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_2_100.png",
+        "spell": "mercedesbenz"
+      },
+      {
+        "id": 7,
+        "name": "丰田",
+        "clickRank": 98,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_7_100.png",
+        "spell": "toyota"
+      },
+      {
+        "id": 226,
+        "name": "本田",
+        "clickRank": 97,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_26_100.png",
+        "spell": "honda"
+      },
+      {
+        "id": 92,
+        "name": "奥迪",
+        "clickRank": 96,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_9_100.png",
+        "spell": "audi"
+      },
+      {
+        "id": 32,
+        "name": "宝马",
+        "clickRank": 95,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_3_100.png",
+        "spell": "bmw"
+      },
+      {
+        "id": 3210,
+        "name": "日产",
+        "clickRank": 94,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_30_100.png",
+        "spell": "nissan"
+      },
+      {
+        "id": 821,
+        "name": "大众",
+        "clickRank": 100,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_8_100.png",
+        "spell": "volkswagen"
+      },
+      {
+        "id": 21,
+        "name": "奔驰",
+        "clickRank": 99,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_2_100.png",
+        "spell": "mercedesbenz"
+      },
+      {
+        "id": 71,
+        "name": "丰田",
+        "clickRank": 98,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_7_100.png",
+        "spell": "toyota"
+      },
+      {
+        "id": 226,
+        "name": "本田",
+        "clickRank": 97,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_26_100.png",
+        "spell": "honda"
+      },
+      {
+        "id": 29,
+        "name": "奥迪",
+        "clickRank": 96,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_9_100.png",
+        "spell": "audi"
+      },
+      {
+        "id": 32,
+        "name": "宝马",
+        "clickRank": 95,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_3_100.png",
+        "spell": "bmw"
+      },
+      {
+        "id": 302,
+        "name": "日产",
+        "clickRank": 94,
+        "icon": "//image.bitautoimg.com/bt/car/default/images/logo/masterbrand/png/100/m_30_100.png",
+        "spell": "nissan"
+      }
+    ]
+  },
+  "success": true
+}
