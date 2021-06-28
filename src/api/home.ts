@@ -4,4 +4,12 @@ enum API {
   BRAND_INFO = "/mock/brans.json"
 }
 
-export const getBrand = () => defHttp.post<void>({ url: API.BRAND_INFO });
+
+interface GetBrandInfoModel {
+  dataList: []
+  pageCount: number
+  pageIndex: number
+  rowCount: number
+}
+
+export const getBrand = () => defHttp.post<GetBrandInfoModel>({ url: API.BRAND_INFO });

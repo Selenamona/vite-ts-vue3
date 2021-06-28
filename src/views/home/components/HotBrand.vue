@@ -9,13 +9,17 @@
 </template>
 
 <script lang='ts'>
-import { getBrand } from '../../../api/home'
+import { getBrand } from '@/api/home'
+import { onMounted } from 'vue';
 
 export default {
   name: 'HotBrand',
-  setup(props) {
-    const brandList: Array<Number> = []
-    getBrand()
+  setup() {
+    let brandList: Array<Number> = []
+    onMounted(async () => {
+      const res = await getBrand();
+      brandList = res.dataList
+    });
     return {
       brandList
     };
