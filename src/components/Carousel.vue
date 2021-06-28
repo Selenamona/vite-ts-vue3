@@ -31,3 +31,9 @@ export default {
   }
 }
 </style>
+
+<style lang="scss">
+.carousel .el-carousel__indicators {
+  bottom: 50px;
+}
+</style>
