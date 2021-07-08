@@ -3,23 +3,49 @@
   <div class="List">
     <haha-Hello>123</haha-Hello>
     <SwitchTabVue :tab-list="tabList" @tabChange="tabChange" />
-    <section v-show="activeKey === 'hot'">选择了热门车型</section>
+
+    <section v-show="activeKey === 'hot'">
+      <div>选择了热门车型</div>
+      <div class="center-part">
+        <ul class="list-wrap">
+          <li class="list-item" v-for="item in numList">
+            <p class="text">{{ item }}</p>
+          </li>
+        </ul>
+        <div class="ad" v-show="showAD">广告</div>
+      </div>
+    </section>
     <section v-show="activeKey === 'installment'">选择了分期购车</section>
+
+    <button @click="adShowChange">{{ showAD ? '删除广告' : '添加广告' }}</button>
   </div>
 </template>
 
 <script lang='ts'>
 import SwitchTabVue from "@/components/SwitchTab.vue";
-import { reactive, ref } from "@vue/reactivity";
-import { getCurrentInstance } from 'vue'
+import { getCurrentInstance, watchEffect, reactive, ref, h } from 'vue'
 export default {
   name: 'List',
+  /**
+   * 请不要解构 props 对象，因为它会失去响应式
+   */
   setup(props: any) {
     console.log("🚀  setup ~ props", props)
+    const numList = ['00', '11', '22', '33', '44', '55', '66', '77', '88', '99',]
+    let showAD = ref(true)
+
+    const adShowChange = () => {
+      showAD.value = !showAD.value
+    }
 
     // 获取全局变量
     const instance = getCurrentInstance()
     console.log("🚀  instance", instance?.appContext.config.globalProperties.$foo)
+
+
+    watchEffect(() => {
+      console.log(`name is: ` + props.name)
+    })
 
     // 切换车源tab
     let activeKey = ref('hot')
@@ -27,14 +53,48 @@ export default {
     const tabChange = (key: string) => {
       activeKey.value = key
     }
+
     return {
       activeKey,
       tabList,
-      tabChange
+      tabChange,
+      numList,
+      showAD,
+      adShowChange
     };
+
+    // 渲染函数/JSX 的方法
+    // const count = ref(0)
+    // const object = reactive({ foo: 'bar' })
+    // return () => h('div', [count.value, object.foo])
   },
   components: { SwitchTabVue }
 };
 </script>
 <style lang='scss' scoped>
+.center-part {
+  background: pink;
+  display: flex;
+  width: 600px;
+  .list-wrap {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .list-item {
+      width: 100px;
+      padding: 5px 10px;
+      .text {
+        background: #f10;
+        height: 100px;
+      }
+    }
+  }
+  .ad {
+    width: 100px;
+    height: 200px;
+    background: yellow;
+    margin-right: 10px;
+  }
+}
 </style>

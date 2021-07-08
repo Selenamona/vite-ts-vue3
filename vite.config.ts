@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [vue({
     template: {
       compilerOptions: {
-        isCustomElement: tag => tag.startsWith('haha-')
+        isCustomElement: tag => tag.startsWith('haha-') // 设置自定义元素，不报错
       }
     }
   })],
