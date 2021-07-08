@@ -23,7 +23,7 @@
 
 <script lang='ts'>
 import SwitchTabVue from "@/components/SwitchTab.vue";
-import { getCurrentInstance, watchEffect, reactive, ref, h } from 'vue'
+import { getCurrentInstance, watchEffect, reactive, ref, h, toRef, toRefs } from 'vue'
 export default {
   name: 'List',
   /**
@@ -54,6 +54,41 @@ export default {
       activeKey.value = key
     }
 
+    // 响应式 API
+    // 1、toRef 可以用来为源响应式对象上的某个 property 新创建一个 ref。然后，ref 可以被传递，它会保持对其源 property 的响应式连接。
+    const state = reactive({
+      foo: 1,
+      bar: 2
+    })
+    const fooRef = toRef(state, 'foo')
+    fooRef.value++
+    console.log(state.foo) // 2
+    state.foo++
+    console.log(fooRef.value) // 3
+
+    // 2、toRefs 将响应式对象转换为普通对象，其中结果对象的每个 property 都是指向原始对象相应 property 的 ref
+    const state2 = reactive({
+      foo: 1,
+      bar: 2
+    })
+
+    const stateAsRefs = toRefs(state2)
+    /*
+    stateAsRefs 的类型:
+
+    {
+      foo: Ref<number>,
+      bar: Ref<number>
+    }
+    */
+    // ref 和原始 property 已经“链接”起来了
+    state.foo++
+    console.log(stateAsRefs.foo.value) // 2
+
+    stateAsRefs.foo.value++
+    console.log(state.foo) // 3
+
+
     return {
       activeKey,
       tabList,
@@ -62,6 +97,8 @@ export default {
       showAD,
       adShowChange
     };
+
+
 
     // 渲染函数/JSX 的方法
     // const count = ref(0)
