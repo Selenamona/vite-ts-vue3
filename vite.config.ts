@@ -7,7 +7,13 @@ function pathResolve(dir: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue({
+    template: {
+      compilerOptions: {
+        isCustomElement: tag => tag.startsWith('haha-')
+      }
+    }
+  })],
   resolve: {
     // alias: {
     //   '@': resolve(__dirname, 'src')
