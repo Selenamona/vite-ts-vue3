@@ -5,18 +5,39 @@
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
 
+export enum DeviceType {
+  Mobile,
+  Desktop,
+}
 
 // 为 store state 声明类型
 export interface State {
-  count: number
+  device:DeviceType,
+  count:Number,
+  name:String,
+  sidebar: {
+    opened: boolean
+    withoutAnimation: boolean
+  }
 }
-
+export const state:State = {
+  device: DeviceType.Desktop,
+  count: 0,
+  name: "2",
+  sidebar: {
+    opened: false,
+    withoutAnimation: true
+  }
+}
 // 定义 injection key
 export const key: InjectionKey<Store<State>> = Symbol()
 
 export const store = createStore<State>({
-  state: {
-    count: 443
+  state: state,
+  mutations: {
+    increment(state:State) {
+      state.count++ ;
+    }
   }
 })
 

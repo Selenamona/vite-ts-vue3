@@ -1,0 +1,35 @@
+{
+  "msg": null,
+  "code": 0,
+  "data": {
+    "pageInfo": null,
+    "info": {
+      "userOpenId": "o1QSJ5DjUFmgqEZqlGXDH-TLxRuI",
+      "userName": "苳",
+      "userId": 100026,
+      "loginUserId": "XMSL234124234",
+      "userPhone": "15633585937",
+      "userAvatar": "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJCquyXicIzOrZvVLOpaOtSJWU7v7Edhh2CgybK2TbVyZYjTLIoaapCXuvLR3w1icpURLEcDu7VRZ1A/132",
+      "location": "北京市",
+      "newCarNum": "3",
+      "usedCarNum": "14",
+      "heatNum": "245",
+      "isEnable": "1",
+      "createTime": "2020-08-31",
+      "source": null,
+      "userType": null,
+      "isLogin": null,
+      "auctionCarNo": "FNCD10002",
+      "profile": "汽车之家（NYSE：ATHM）成立于2005年，为消费者提供优质的汽车消费和汽车生活服务，助力中国汽车产业蓬勃发展。我们致力于通过产品服务、数据技术、生态规则和资源为用户和客户赋能，建设“车内容、车交易、车金融、车生活” 4个圈，建立以数据和技术为核心的智能汽车生态圈，正式迈向智能化的3.0时代。",
+      "shopAddress": null,
+      "lat": null,
+      "lng": null,
+      "cityCode": null,
+      "backgroundImage": null,
+      "fansNum": "2",
+      "attentionNum": "1",
+      "attentionStatus": "0",
+      "qrcode": null
+    }
+  }
+}

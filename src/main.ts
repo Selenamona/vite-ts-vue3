@@ -4,10 +4,12 @@ import router from "./router/index"
 import { store, key } from './store/index'
 import { loadAllPlugins } from './plugins'
 import './style/index.scss'
-
+import "/@/utils/rem";
+import { PullRefresh } from "vant";
+import "vant/lib/index.css"; // 全局引入样式
 const app = createApp(App)
 loadAllPlugins(app)
-app.use(router).use(store, key).mount('#app')
+app.use(router).use(store, key).use(PullRefresh).mount('#app')
 
 
 /**

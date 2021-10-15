@@ -7,6 +7,7 @@ let routes: Array<RouteRecordRaw> = []
 Object.keys(constantFiles).forEach(k => {
   routes = routes.concat(constantFiles[k].default)
 })
+console.log(routes);
 
 const Router = createRouter({
   history: createWebHashHistory(),
