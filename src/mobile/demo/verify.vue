@@ -6,10 +6,10 @@
 </template>
 
 <script lang="ts">
-  import vueImgVerify from "../../components/VueImageVerify.vue";
-  export default {
-    name: "verify",
-    components: { vueImgVerify }
-  };
+import vueImgVerify from "../../components/mobile/VueImageVerify.vue";
+export default {
+  name: "verify",
+  components: { vueImgVerify }
+};
 </script>
 <style lang="scss" scoped></style>
