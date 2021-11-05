@@ -74,7 +74,7 @@ class VAxios {
         .then((res: AxiosResponse<Result>) => {
           try {
             const { data: result } = res;
-            console.log("🚀 ~ file: index.ts ~ line 77 ~ VAxios ~ .then ~ result", result)
+            // console.log("🚀 接口返回", result)
             if (!result) {
               throw new Error('sys.api.apiRequestFailed'); // return '[HTTP] Request has no return value';
             }

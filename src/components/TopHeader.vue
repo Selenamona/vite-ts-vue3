@@ -1,4 +1,3 @@
-
 <!-- 顶部导航 -->
 <template>
   <div class="top-header">
@@ -6,44 +5,51 @@
     <div class="nav-wrap">
       <span
         :class="[{ 'active-nav': index === active }, 'item']"
-        v-for="(item,index) in titleList"
+        v-for="(item, index) in titleList"
         @click="nextPage(index)"
-      >{{ item }}</span>
+        >{{ item }}</span
+      >
     </div>
     <div class="location" @click="citySelect">北京</div>
     <div class="download" @click="appDownLoad">APP</div>
   </div>
 </template>
 
-<script lang='ts'>
-
+<script lang="ts">
 export default {
-  name: 'topHeader',
+  name: "topHeader",
   props: {
     active: { type: Number }
   },
   setup(props: any) {
-    console.log("  props", props)
-    const titleList: Array<string> = ["首页", "新车分期", "汽车保险", "车来财", "易鑫集团", "联系我们"]
+    console.log("setup props", props);
+    const titleList: Array<string> = [
+      "首页",
+      "新车分期",
+      "汽车保险",
+      "车来财",
+      "易鑫集团",
+      "联系我们"
+    ];
     const nextPage = (index: number) => {
       console.log(titleList[index]);
-    }
+    };
     const citySelect = () => {
       console.log("选择城市");
-    }
+    };
     const appDownLoad = () => {
       console.log("下载APP");
-    }
+    };
     return {
       titleList,
       nextPage,
       citySelect,
       appDownLoad
     };
-  },
+  }
 };
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .top-header {
   height: 40px;
   position: fixed;

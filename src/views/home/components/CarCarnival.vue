@@ -3,17 +3,13 @@
   <div class="car-carnival"></div>
 </template>
 
-<script lang='ts'>
-
+<script lang="ts">
 export default {
-  name: 'CarCarnival',
+  name: "CarCarnival",
   setup(props) {
-    return {
-
-    };
+    return {};
   },
   components: {}
 };
 </script>
-<style lang='scss' scoped>
-</style>
+<style lang="scss" scoped></style>

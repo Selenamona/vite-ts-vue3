@@ -16,15 +16,19 @@ const theme = {
   color: "red"
 };
 const childCom = ref(null);
+const pDom = ref(null);
 
 onMounted(() => {
-  console.log(childCom, 222);
+  console.log(pDom.value, "p"); // 获取 dom 元素
+  const a: any = childCom.value;
+  console.log(a, a.a, "a");
+  a.changeTest();
 });
 </script>
 
 <template>
   <div class="title">我是父组件</div>
-  <p class="pColor">测试样式</p>
+  <p ref="pDom" class="pColor">测试样式</p>
   <!-- <Child msg="你真棒" @change="changeFn" @update="updateFn" /> -->
   <Child ref="childCom" @change="changeFn" @update="updateFn" />
 </template>
