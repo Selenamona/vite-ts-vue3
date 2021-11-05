@@ -1,19 +1,13 @@
 <script setup lang="ts">
-
 // 使用类型声明时的默认 props 值
 interface Props {
   msg?: string;
   labels?: string[];
 }
-
-const isAbsent = Symbol();
-
-const props = withDefaults(defineProps<Props>(), {
+const propsOns = withDefaults(defineProps<Props>(), {
   msg: "hello",
-  labels: () => ["one", "two"],
-  name: isAbsent
+  labels: () => ["one", "two"]
 });
-
 const emit = defineEmits<{
   (e: "change", id: number): void;
   (e: "update", value: string): void;
@@ -29,8 +23,6 @@ defineExpose({
   a,
   changeTest
 });
-
-
 </script>
 <template>
   <div>

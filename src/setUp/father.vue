@@ -1,14 +1,17 @@
 <script setup lang="ts">
 // 参考单文件组件：https://v3.cn.vuejs.org/api/sfc-spec.html#%E4%BB%8B%E7%BB%8D
 
-import { onMounted, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import Child from "./child.vue";
+const count = ref(1);
+const obj = reactive({ count });
+console.log("reactive 将解包所有深层的 refs，同时维持 ref 的响应性", obj);
 
 const changeFn = (id: number) => {
-  console.log("触发了change", id);
+  console.log("子组件触发了 change", id);
 };
 const updateFn = (id: string) => {
-  console.log("触发了update", id);
+  console.log("子组件触发了 update", id);
 };
 // const a = useCssModule("classes")
 // console.log(a);
@@ -19,10 +22,10 @@ const childCom = ref(null);
 const pDom = ref(null);
 
 onMounted(() => {
-  console.log(pDom.value, "p"); // 获取 dom 元素
+  console.log("获取子组件 dom 元素", pDom.value); // 获取 dom 元素
   const a: any = childCom.value;
-  console.log(a, a.a, "a");
-  a.changeTest();
+  console.log("获取子组件 defineExpose 暴露的变量a", a.a);
+  a.changeTest(); // 调用子组件方法
 });
 </script>
 
