@@ -182,42 +182,133 @@
       const info = new Info();
       info.getInfo("hihi", "age"); // 修饰的是getInfo的第2个参数
 
+
+      // 访问器装饰器
+      function configurable(value: boolean) {
+        return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+          descriptor.configurable = value;
+        };
+      }
+      class Point {
+        private _x: number;
+        private _y: number;
+        constructor(x: number, y: number) {
+          this._x = x;
+          this._y = y;
+        }
+
+        @configurable(false)
+        get x() { return this._x; }
+
+        @configurable(false)
+        get y() { return this._y; }
+      }
+
+
+
       // 装饰器加载顺序
-      function ClassDecorator() {
+      function ClassDecorator1() {
         return function (target: any) {
-          console.log("I am class decorator");
+          console.log("==> 第1个类装饰器");
         }
       }
 
-      function MethodDecorator() {
+      function ClassDecorator2() {
+        return function (target: any) {
+          console.log("==> 第2个类装饰器");
+        }
+      }
+
+      function MethodDecorator0() {
         return function (target: any, methodName: string, descriptor: PropertyDescriptor) {
-          console.log("I am method decorator");
+          console.log(`==>${methodName} 第1个方法装饰器`);
+        }
+      }
+
+      function MethodDecorator1() {
+        return function (target: any, methodName: string, descriptor: PropertyDescriptor) {
+          console.log(`==>${methodName} 第2个方法装饰器`);
+        }
+      }
+
+      function MethodDecorator2() {
+        return function (target: any, methodName: string, descriptor: PropertyDescriptor) {
+          console.log(`==>${methodName} 方法装饰器`);
+        }
+      }
+
+      function StaticMethodDecorator() {
+        return function (target: any, methodName: string, descriptor: PropertyDescriptor) {
+          console.log(`==>${methodName} 静态方法装饰器`);
         }
       }
 
       function Param1Decorator() {
         return function (target: any, methodName: string, paramIndex: number) {
-          console.log("I am parameter1 decorator");
+          console.log(`==>${methodName} 方法，第 ${paramIndex} 个参数装饰器`);
         }
       }
 
       function Param2Decorator() {
         return function (target: any, methodName: string, paramIndex: number) {
-          console.log("I am parameter2 decorator");
+          console.log(`==>${methodName} 方法，第 ${paramIndex} 个参数装饰器`);
         }
       }
 
-      function PropertyDecorator() {
-        return function (target: any, propertyName: string) {
-          console.log("I am property decorator");
+      function SayParamDecorator() {
+        return function (target: any, methodName: string, paramIndex: number) {
+          console.log(`==>${methodName} 方法，第 ${paramIndex} 个参数装饰器`);
         }
       }
-      @ClassDecorator()
+
+      function PropertyDecorator0() {
+        return function (target: any, propertyName: string) {
+          console.log(`==>${propertyName} 第1个属性装饰器`);
+        }
+      }
+
+      function StaticPropertyDecorator() {
+        return function (target: any, propertyName: string) {
+          console.log(`==>${propertyName} 静态属性装饰器`);
+        }
+      }
+
+      function PropertyDecorator1() {
+        return function (target: any, propertyName: string) {
+          console.log(`==>${propertyName} 第2个属性装饰器`);
+        }
+      }
+
+      function PropertyDecorator2() {
+        return function (target: any, propertyName: string) {
+          console.log(`==>${propertyName} 属性装饰器`);
+        }
+      }
+      @ClassDecorator1()
+      @ClassDecorator2()
+
       class HelloDD {
-        @PropertyDecorator()
-        greeting!: string;
-        @MethodDecorator()
+        @PropertyDecorator0()
+        @PropertyDecorator1()
+        greeting!: string; // !: 解决属性不设置默认值会报错
+
+        @MethodDecorator0()
+        @MethodDecorator1()
         greet(@Param1Decorator() p1: string, @Param2Decorator() p2: string) {}
+
+        @StaticPropertyDecorator()
+        static age: number = 12
+
+        @StaticMethodDecorator()
+        static eat() {}
+
+        @PropertyDecorator2()
+        name: string = "abc"
+
+        @MethodDecorator2()
+        say(@SayParamDecorator() p1: string, ) {}
+
+
       }
     }
   });
