@@ -39,3 +39,9 @@ Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
 ## element-plus
 
 `npm install element-plus --save`
+
+## Project Catalog
+
+- mobile 移动端
+- views PC端
+- setUp vue3 `<script setup>`

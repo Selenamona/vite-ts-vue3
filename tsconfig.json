@@ -1,6 +1,7 @@
 {
   // 项目配置参考：https://www.tslang.cn/docs/handbook/tsconfig-json.html
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
