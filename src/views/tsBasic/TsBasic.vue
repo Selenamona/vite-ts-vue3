@@ -8,6 +8,10 @@
 
   export default defineComponent({
     setup() {
+      // 类型断言
+      let someValue: any = "this is a string";
+      let strLength: number = ( < string > someValue).length;
+      let strLength2: number = (someValue as string).length;
       /**
        * 映射类型
        */
