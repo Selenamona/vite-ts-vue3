@@ -184,25 +184,33 @@
 
 
       // 访问器装饰器
-      function configurable(value: boolean) {
-        return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-          descriptor.configurable = value;
-        };
+      function addDecorator(
+        target: any,
+        key: string,
+        descriptor: PropertyDescriptor
+      ) {
+        console.log("访问器装饰器 target   ->", target);
+        console.log("key ->", key);
+        console.log("descript ->", descriptor);
       }
-      class Point {
-        private _x: number;
-        private _y: number;
-        constructor(x: number, y: number) {
-          this._x = x;
-          this._y = y;
+
+      class Phone {
+        private _color: string = "green";
+
+        get getColor() {
+          return this._color;
         }
 
-        @configurable(false)
-        get x() { return this._x; }
-
-        @configurable(false)
-        get y() { return this._y; }
+        @addDecorator
+        set setColor(color: string) {
+          this._color = color;
+        }
       }
+
+      const newP = new Phone()
+      newP.setColor = "yellow"
+      console.log("访问器装饰器", newP);
+
 
 
 
