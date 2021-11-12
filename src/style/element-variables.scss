@@ -1,0 +1,37 @@
+// $--colors: ("primary": ("base": pink,
+//   ),
+//   "success": ("base": black,
+//   ),
+//   "warning": ("base": #f2711c,
+//   ),
+//   "danger": ("base": #db2828,
+//   ),
+//   "error": ("base": #db2828,
+//   ),
+//   "info": ("base": #42b8dd,
+//   ),
+// );
+
+$--colors: (
+  "primary": (
+    "base": yellow
+  ),
+  "success": (
+    "base": purple
+  ),
+  "warning": (
+    "base": #e6a23c
+  ),
+  "danger": (
+    "base": #f56c6c
+  ),
+  "error": (
+    "base": #f56c6c
+  ),
+  "info": (
+    "base": #909399
+  )
+);
+/* 只需要重写你需要的即可 */
+@forward "element-plus/theme-chalk/src/common/var.scss" with
+( $colors: $--colors );

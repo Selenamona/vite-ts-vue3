@@ -16,10 +16,15 @@
   // const a = useCssModule("classes")
   // console.log(a);
   const theme = {
-    color: "red"
+    color: "red",
   };
   const childCom = ref(null);
   const pDom = ref(null);
+
+  // 切换皮肤
+  const changeSkin: () => void = (): void => {
+
+  }
 
   onMounted(() => {
     console.log("获取子组件 dom 元素", pDom.value); // 获取 dom 元素
@@ -30,18 +35,27 @@
 </script>
 
 <template>
-  <div class="title">我是父组件</div>
-  <p ref="pDom" class="pColor">测试样式</p>
+  <div :class="classes.title">我是父组件</div>
+  <p ref="pDom" :class="classes.pColor">测试样式</p>
   <!-- <Child msg="你真棒" @change="changeFn" @update="updateFn" /> -->
   <Child ref="childCom" @change="changeFn" @update="updateFn" />
-
+  <el-button @click="changeSkin">Default</el-button>
+  <el-button type="primary">Primary</el-button>
+  <el-button type="success">Success</el-button>
+  <el-button type="info">Info</el-button>
+  <el-button type="warning">Warning</el-button>
+  <el-button type="danger">Danger</el-button>
 </template>
 
-<style scoped lang="scss" module="classes">
+<style lang="scss" module="classes">
   // .title :deep(.content){
   //   color:#f10;
   //   font-size:16px;
   // }
+
+  .title {
+    background-color: var(--el-color-success);
+  }
 
   .pColor {
     color: v-bind("theme.color");

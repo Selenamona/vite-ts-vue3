@@ -7,6 +7,7 @@ import './style/index.scss'
 import "/@/utils/rem";
 import { PullRefresh } from "vant";
 import "vant/lib/index.css"; // 全局引入样式
+// import './style/element-variables.scss'
 const app = createApp(App)
 loadAllPlugins(app)
 app.use(router).use(store, key).use(PullRefresh).mount('#app')
