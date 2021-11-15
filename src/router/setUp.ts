@@ -8,7 +8,7 @@ const SetUpRouts: Array<RouteRecordRaw> = [{
 }, {
   path: "/el",
   name: "setUpEl",
-  component: () => import("@/setUp/elementU.vue")
+  component: () => import("@/setUp/elementU/elementU.vue")
 }]
 
 export default SetUpRouts

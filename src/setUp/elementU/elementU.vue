@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import tableTreeSelectVue from "./table-tree-select.vue";
 const tableData = [
   {
     id: "12987122",
@@ -244,95 +244,6 @@ const objectSpanMethod2 = ({ row, column, rowIndex, columnIndex }: any) => {
   }
 };
 getOrderNumber();
-
-const tableData2 = [
-  {
-    id: 1,
-    date: "2016-05-02",
-    name: "wangxiaohu"
-  },
-  {
-    id: 2,
-    date: "2016-05-04",
-    name: "wangxiaohu"
-  },
-  {
-    id: 3,
-    date: "2016-05-01",
-    name: "wangxiaohu",
-    children: [
-      {
-        id: 31,
-        date: "2016-05-01",
-        name: "wangxiaohu",
-        children: [
-          {
-            id: 98,
-            date: "2016-05-01",
-            name: "wangxiaohu"
-          },
-          {
-            id: 987,
-            date: "2016-05-01",
-            name: "wangxiaohu"
-          }
-        ]
-      },
-      {
-        id: 32,
-        date: "2016-05-01",
-        name: "wangxiaohu",
-        children: [
-          {
-            id: 77,
-            date: "2016-05-01",
-            name: "wangxiaohu"
-          },
-          {
-            id: 86,
-            date: "2016-05-01",
-            name: "wangxiaohu"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 4,
-    date: "2016-05-03",
-    name: "wangxiaohu"
-  }
-];
-
-const multipleTable: any = ref(null);
-const recursiveFn = (arr: [], isCheck: boolean) => {
-  arr.forEach((item: any) => {
-    console.log(item);
-    multipleTable.value.toggleRowSelection(item, isCheck); // 切换子节点选中状态
-    if (item.children?.length) {
-      recursiveFn(item.children, isCheck);
-    }
-  });
-};
-
-// 手动勾选数据行的 Checkbox
-const selectRow = (selection: [], row: any) => {
-  const isCheck: boolean = selection.includes(row as never);
-  if (row.children?.length) {
-    recursiveFn(row.children, isCheck);
-  }
-};
-
-let multipleSelection: [] = [];
-const handleSelectionChange = (val: any) => {
-  // val.forEach((item: any) => {
-  //   if (item.children.length) {
-  //     recursiveFn(item.children)
-  //   }
-  // })
-  // multipleSelection = val
-  // console.log("multipleSelection", multipleSelection);
-};
 </script>
 
 <template>
@@ -349,14 +260,7 @@ const handleSelectionChange = (val: any) => {
     <el-table-column prop="journey" label="行程" width="600"></el-table-column>
     <el-table-column prop="lecturer" label="讲师"></el-table-column>
   </el-table> -->
-  <!-- 折叠 -->
-  <el-table ref="multipleTable" :data="tableData2" style="width: 100%; margin-bottom: 20px" row-key="id" border default-expand-all @select="selectRow" @selection-change="handleSelectionChange">
-    <el-table-column type="selection" width="55" />
-    <!-- <template #default="scope">
-        <el-button size="mini" v-show="scope.$index!=0">Edit</el-button>
-      </template> -->
-    <!-- </el-table-column> -->
-    <el-table-column prop="date" label="date" sortable width="180" />
-    <el-table-column prop="name" label="Name" sortable width="180" />
-  </el-table>
+
+  <!-- 树结构-多选-表格 -->
+  <tableTreeSelectVue />
 </template>
