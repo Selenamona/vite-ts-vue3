@@ -96,24 +96,30 @@ const threeChange = (value: boolean, threeItem: any) => {
   });
 };
 // 四级选中
-const fourChange = (value: boolean, index: number) => {};
+const fourChange = (value: boolean, threeItem: any, twoItem: any, oneItem: any) => {};
+
+const getState = () => {};
 </script>
 <template>
   <!-- <el-scrollbar height="400px"> -->
   <div class="custom-table">
     <!-- 一级分类 -->
-    <div class="one-item" v-for="(item, index) in tableData" :key="index">
+    <div class="one-item" v-for="(oneItem, index) in tableData" :key="index">
       <div class="one-cell">
         <el-checkbox
-          v-model="item.isCheck"
-          :label="item.oneLevel"
-          :indeterminate="item.halfCheck"
-          @change="oneChange($event, item)"
+          v-model="oneItem.isCheck"
+          :label="oneItem.oneLevel"
+          :indeterminate="oneItem.halfCheck"
+          @change="oneChange($event, oneItem)"
         ></el-checkbox>
       </div>
       <div class="two-wrap">
         <!-- 二级分类 -->
-        <div class="two-item" v-for="(twoItem, twoIndex) in item.twoList" :key="twoIndex">
+        <div
+          class="two-item"
+          v-for="(twoItem, twoIndex) in oneItem.twoList"
+          :key="twoIndex"
+        >
           <div class="two-cell">
             <el-checkbox
               v-model="twoItem.isCheck"
@@ -138,6 +144,7 @@ const fourChange = (value: boolean, index: number) => {};
                 ></el-checkbox>
               </div>
               <div class="four-wrap">
+                <!-- 四级分类 -->
                 <div
                   class="four-item"
                   v-for="(fourItem, fourIndex) in threeItem.fourList"
@@ -148,7 +155,7 @@ const fourChange = (value: boolean, index: number) => {};
                       v-model="fourItem.isCheck"
                       :label="fourItem.name"
                       :indeterminate="fourItem.halfCheck"
-                      @change="fourChange($event, fourIndex)"
+                      @change="fourChange($event, threeItem, twoItem, oneItem)"
                     ></el-checkbox>
                   </div>
                 </div>
