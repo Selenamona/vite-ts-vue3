@@ -81,28 +81,69 @@ const oneChange = (value: boolean, oneItem: any) => {
   });
 };
 // 二级选中
-const twoChange = (value: boolean, twoItem: any, oneIndex: number) => {
+const twoChange = (value: boolean, twoItem: any, oneItem: any) => {
   twoItem["threeList"].forEach((item: any) => {
     item["isCheck"] = value; // 设置三级选中状态
     item.fourList.forEach((ele: any) => {
       ele["isCheck"] = value; // 设置四选中状态
     });
   });
+  getState(oneItem, "twoList"); // 设置一级选中状态
 };
 // 三级选中
-const threeChange = (value: boolean, threeItem: any) => {
+const threeChange = (value: boolean, threeItem: any, twoItem: any, oneItem: any) => {
   threeItem.fourList.forEach((ele: any) => {
     ele["isCheck"] = value; // 设置四选中状态
   });
+  getState(twoItem, "threeList"); // 设置二级选中状态
+  getState(oneItem, "twoList"); // 设置一级选中状态
 };
 // 四级选中
-const fourChange = (value: boolean, threeItem: any, twoItem: any, oneItem: any) => {};
+const fourChange = (threeItem: any, twoItem: any, oneItem: any) => {
+  getState(threeItem, "fourList"); // 设置三级选中状态
+  getState(twoItem, "threeList"); // 设置二级选中状态
+  getState(oneItem, "twoList"); // 设置一级选中状态
+};
 
-const getState = () => {};
+// 判断选中状态
+const getState = (item: any, key: string) => {
+  let hasChecked = false,
+    hasEmpty = false;
+  for (let i = 0; i < item[key].length; i++) {
+    const element: any = item[key][i];
+    if (element.halfCheck) {
+      item.halfCheck = true; // 子级半选，父级肯定半选
+      return;
+    }
+    element.isCheck ? (hasChecked = true) : (hasEmpty = true);
+    if (hasChecked && hasEmpty) {
+      item.halfCheck = true; // 半选
+      return;
+    }
+  }
+  item.halfCheck = false; // 取消半选
+  item.isCheck = hasChecked ? true : false; // 全选/未选
+};
 </script>
 <template>
   <!-- <el-scrollbar height="400px"> -->
   <div class="custom-table">
+    <div class="one-item">
+      <p class="one-cell">一级菜单</p>
+      <div class="two-wrap">
+        <div class="two-item">
+          <p class="two-cell">二级菜单</p>
+          <div class="three-wrap">
+            <div class="three-item">
+              <p class="three-cell">三级菜单</p>
+              <div class="four-item">
+                <p class="four-cell">四级菜单</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- 一级分类 -->
     <div class="one-item" v-for="(oneItem, index) in tableData" :key="index">
       <div class="one-cell">
@@ -125,7 +166,7 @@ const getState = () => {};
               v-model="twoItem.isCheck"
               :label="twoItem.twoLevel"
               :indeterminate="twoItem.halfCheck"
-              @change="twoChange($event, twoItem, index)"
+              @change="twoChange($event, twoItem, oneItem)"
             ></el-checkbox>
           </div>
           <div class="three-wrap">
@@ -140,7 +181,7 @@ const getState = () => {};
                   v-model="threeItem.isCheck"
                   :label="threeItem.threeLevel"
                   :indeterminate="threeItem.halfCheck"
-                  @change="threeChange($event, threeItem)"
+                  @change="threeChange($event, threeItem, twoItem, oneItem)"
                 ></el-checkbox>
               </div>
               <div class="four-wrap">
@@ -155,7 +196,7 @@ const getState = () => {};
                       v-model="fourItem.isCheck"
                       :label="fourItem.name"
                       :indeterminate="fourItem.halfCheck"
-                      @change="fourChange($event, threeItem, twoItem, oneItem)"
+                      @change="fourChange(threeItem, twoItem, oneItem)"
                     ></el-checkbox>
                   </div>
                 </div>
@@ -187,18 +228,20 @@ const getState = () => {};
 .two-cell,
 .three-cell {
   min-width: 120px;
+}
+.one-cell,
+.two-cell,
+.three-cell,
+.four-cell {
   padding-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .two-wrap,
 .three-wrap,
 .four-wrap {
   flex: 1;
-}
-.four-wrap {
-  .four-cell {
-    margin: 0 10px;
-  }
 }
 .one-cell,
 .three-cell {
