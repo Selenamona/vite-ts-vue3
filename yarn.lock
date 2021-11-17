@@ -394,6 +394,28 @@
   dependencies:
     "vue-demi" "*"
 
+"@windicss/config@1.5.1":
+  "integrity" "sha512-nWNgvvJj9RcYhLcqwju/Z8FfaHRjyWHDYS3IgY7lWUM+vWTLFuKqhavKfC1589kdYjiO9JeX07Vg+YzfcxP0Yw=="
+  "resolved" "https://registry.npmjs.org/@windicss/config/-/config-1.5.1.tgz"
+  "version" "1.5.1"
+  dependencies:
+    "debug" "^4.3.2"
+    "jiti" "^1.12.9"
+    "windicss" "^3.2.1"
+
+"@windicss/plugin-utils@1.5.1":
+  "integrity" "sha512-gxJiTCMKv1p1x4W2BLG2yfNe+DfIVPc8+aKvfCUCtOpdg5GB5yzhuAC4ROsKiXHxu4QXoojrh7jXH6ELlrELpQ=="
+  "resolved" "https://registry.npmjs.org/@windicss/plugin-utils/-/plugin-utils-1.5.1.tgz"
+  "version" "1.5.1"
+  dependencies:
+    "@antfu/utils" "^0.3.0"
+    "@windicss/config" "1.5.1"
+    "debug" "^4.3.2"
+    "fast-glob" "^3.2.7"
+    "magic-string" "^0.25.7"
+    "micromatch" "^4.0.4"
+    "windicss" "^3.2.1"
+
 "acorn-jsx@^5.2.0", "acorn-jsx@^5.3.1":
   "integrity" "sha512-K0Ptm/47OKfQRpNQ2J/oIN/3QYiK6FwW+eJbILhsdxh2WTLdl+30o8aGdTbm5JbffpFFAg/g+zi1E+jvJha5ng=="
   "resolved" "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.1.tgz"
@@ -583,10 +605,10 @@
     "escape-string-regexp" "^1.0.5"
     "supports-color" "^5.3.0"
 
-"chalk@^4.0.0":
-  "integrity" "sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg=="
-  "resolved" "https://registry.npmjs.org/chalk/-/chalk-4.1.1.tgz"
-  "version" "4.1.1"
+"chalk@^4.0.0", "chalk@^4.1.2":
+  "integrity" "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA=="
+  "resolved" "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  "version" "4.1.2"
   dependencies:
     "ansi-styles" "^4.1.0"
     "supports-color" "^7.1.0"
@@ -1440,6 +1462,11 @@
   "integrity" "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
   "resolved" "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
   "version" "2.0.0"
+
+"jiti@^1.12.9":
+  "integrity" "sha512-TdcJywkQtcwLxogc4rSMAi479G2eDPzfW0fLySks7TPhgZZ4s/tM6stnzayIh3gS/db3zExWJyUx4cNWrwAmoQ=="
+  "resolved" "https://registry.npmjs.org/jiti/-/jiti-1.12.9.tgz"
+  "version" "1.12.9"
 
 "js-stringify@^1.0.2":
   "integrity" "sha1-Fzb939lyTyijaCrcYjCufk6Weds="
@@ -2324,7 +2351,17 @@
     "@vant/popperjs" "^1.1.0"
     "@vant/use" "^1.3.2"
 
-"vite@^2.3.0", "vite@^2.5.10", "vite@^2.6.14":
+"vite-plugin-windicss@^1.5.1":
+  "integrity" "sha512-AUuRFT5Y7SfW9eclaKf5BOTZ7MMfkUZzOeVzqd9yq/uIwzWyleRtssCTuJgZ0+om+hnXn9YwcIpR26lsaasIbg=="
+  "resolved" "https://registry.npmjs.org/vite-plugin-windicss/-/vite-plugin-windicss-1.5.1.tgz"
+  "version" "1.5.1"
+  dependencies:
+    "@windicss/plugin-utils" "1.5.1"
+    "chalk" "^4.1.2"
+    "debug" "^4.3.2"
+    "windicss" "^3.2.1"
+
+"vite@^2.0.1", "vite@^2.3.0", "vite@^2.5.10", "vite@^2.6.14":
   "integrity" "sha512-2HA9xGyi+EhY2MXo0+A2dRsqsAG3eFNEVIo12olkWhOmc8LfiM+eMdrXf+Ruje9gdXgvSqjLI9freec1RUM5EA=="
   "resolved" "https://registry.npmjs.org/vite/-/vite-2.6.14.tgz"
   "version" "2.6.14"
@@ -2541,6 +2578,11 @@
   "version" "2.0.2"
   dependencies:
     "isexe" "^2.0.0"
+
+"windicss@^3.2.1":
+  "integrity" "sha512-LusrIrryBFHAPQ/OOTbS4EWWuzI6eGeJglI9nQ3kDBr1cqH69NWt8Z8q59f9kTkgptXroejmWfksWwqgHs8EVw=="
+  "resolved" "https://registry.npmjs.org/windicss/-/windicss-3.2.1.tgz"
+  "version" "3.2.1"
 
 "with@^7.0.0":
   "integrity" "sha512-RNGKj82nUPg3g5ygxkQl0R937xLyho1J24ItRCBTr/m1YnZkzJy1hUiHUJrc/VlsDQzsCnInEGSg3bci0Lmd4w=="

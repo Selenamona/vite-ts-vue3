@@ -45,3 +45,13 @@ Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
 - mobile 移动端
 - views PC端
 - setUp vue3 `<script setup>`
+
+
+## Windicss
+
+[中文文档](https://cn.windicss.org/guide/configuration.html)
+[英文文档](https://windicss.org/integrations/vite.html)
+
+
+`npm i -D vite-plugin-windicss windicss`
+

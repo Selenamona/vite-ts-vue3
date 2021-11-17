@@ -9,6 +9,10 @@ const SetUpRouts: Array<RouteRecordRaw> = [{
   path: "/el",
   name: "setUpEl",
   component: () => import("@/setUp/elementU/elementU.vue")
+}, {
+  path: "/wind",
+  name: "setUpWindicss",
+  component: () => import("@/setUp/windicss/test.vue")
 }]
 
 export default SetUpRouts

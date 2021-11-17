@@ -5,13 +5,13 @@ import { reactive } from "vue";
 const tableData: any = reactive([
   {
     id: "1",
-    oneLevel: "用户中心",
+    oneLevel: "一级菜单",
     twoList: [
       {
-        twoLevel: "机构管理",
+        twoLevel: "二级菜单1",
         threeList: [
           {
-            threeLevel: "成员和部门",
+            threeLevel: "三级菜单",
             fourList: [{ name: "查看" }, { name: "添加" }, { name: "删除" }],
           },
           {
@@ -25,7 +25,7 @@ const tableData: any = reactive([
         ],
       },
       {
-        twoLevel: "组织管理",
+        twoLevel: "二级菜单2",
         threeList: [
           {
             threeLevel: "成员和部门2",
