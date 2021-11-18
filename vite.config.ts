@@ -8,10 +8,11 @@ function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
 
-// https://vitejs.dev/config/
+// https://vitejs.dev/config/ 
 export default defineConfig({
   plugins: [
     vue({
+      refTransform: true, // 开启对 ref 语法糖的支持
       template: {
         compilerOptions: {
           isCustomElement: tag => tag.startsWith('haha-') // 设置自定义元素，不报错
