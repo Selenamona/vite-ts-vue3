@@ -6,10 +6,10 @@
 <script lang="ts">
 export default {
   name: "CarCarnival",
-  setup(props) {
+  setup() {
     return {};
   },
-  components: {}
+  components: {},
 };
 </script>
 <style lang="scss" scoped></style>

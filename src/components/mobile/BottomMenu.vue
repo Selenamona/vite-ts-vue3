@@ -1,30 +1,26 @@
 <template>
   <div class="fixed-bottom">
-    <div :class="[{ active: activeKey === 1 }, 'text']" @click="nextPage(1)">
-      首页
-    </div>
-    <img src="@/assets/images/logo.png" alt="" />
-    <div :class="[{ active: activeKey === 2 }, 'text']" @click="nextPage(2)">
-      我的
-    </div>
+    <div :class="[{ active: activeKey === 1 }, 'text']" @click="nextPage(1)">首页</div>
+    <img src="@/assets/mobile/logo.png" alt="" />
+    <div :class="[{ active: activeKey === 2 }, 'text']" @click="nextPage(2)">我的</div>
   </div>
 </template>
 
-<script>
-import { ref } from "vue";
+<script lang="ts">
+import { PropType, ref } from "vue";
 export default {
   name: "HelloWorld",
-  setup(props, { emit }) {
-    let activeKey = ref(1);
-    const nextPage = tab => {
+  setup(props: any, { emit }: any) {
+    let activeKey: any = ref(1);
+    const nextPage = (tab: number) => {
       activeKey.value = tab;
       emit("selectTab", tab);
     };
     return {
       activeKey,
-      nextPage
+      nextPage,
     };
-  }
+  },
 };
 </script>
 

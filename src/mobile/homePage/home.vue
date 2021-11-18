@@ -6,23 +6,23 @@
 </template>
 
 <script lang="ts">
-  import HomeList from "./homeList.vue";
-  import Personal from "./personal.vue";
-  import BottomMenu from "/@/components/mobile/BottomMenu.vue";
-  import { ref } from "vue";
-  export default {
-    name: "home",
-    setup() {
-      let tab = ref(1);
-      const selectTab = key => {
-        tab.value = key;
-      };
-      return {
-        tab,
-        selectTab
-      };
-    },
-    components: { HomeList, Personal, BottomMenu }
-  };
+import HomeList from "./homeList.vue";
+import Personal from "./personal.vue";
+import BottomMenu from "/@/components/mobile/BottomMenu.vue";
+import { ref } from "vue";
+export default {
+  name: "home",
+  setup() {
+    let tab = ref(1);
+    const selectTab = (key: number) => {
+      tab.value = key;
+    };
+    return {
+      tab,
+      selectTab,
+    };
+  },
+  components: { HomeList, Personal, BottomMenu },
+};
 </script>
 <style lang="scss" scoped></style>

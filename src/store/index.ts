@@ -12,15 +12,15 @@ export enum DeviceType {
 
 // 为 store state 声明类型
 export interface State {
-  device:DeviceType,
-  count:Number,
-  name:String,
+  device: DeviceType,
+  count: number,
+  name: string,
   sidebar: {
     opened: boolean
     withoutAnimation: boolean
   }
 }
-export const state:State = {
+export const state: State = {
   device: DeviceType.Desktop,
   count: 0,
   name: "2",
@@ -35,13 +35,13 @@ export const key: InjectionKey<Store<State>> = Symbol()
 export const store = createStore<State>({
   state: state,
   mutations: {
-    increment(state:State) {
-      state.count++ ;
+    increment(state: State) {
+      state.count++;
     }
   }
 })
 
 // 定义自己的 `useStore` 组合式函数
-export function useStore () {
+export function useStore() {
   return baseUseStore(key)
 }
