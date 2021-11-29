@@ -5,12 +5,12 @@ const tableData2 = [
   {
     id: 1,
     date: "2016-05-02",
-    name: "wangxiaohu"
+    name: "wangxiaohu",
   },
   {
     id: 2,
     date: "2016-05-04",
-    name: "wangxiaohu"
+    name: "wangxiaohu",
   },
   {
     id: 3,
@@ -25,14 +25,14 @@ const tableData2 = [
           {
             id: 98,
             date: "2016-07-02",
-            name: "wangxiaohu"
+            name: "wangxiaohu",
           },
           {
             id: 987,
             date: "2016-07-01",
-            name: "wangxiaohu"
-          }
-        ]
+            name: "wangxiaohu",
+          },
+        ],
       },
       {
         id: 32,
@@ -42,22 +42,22 @@ const tableData2 = [
           {
             id: 77,
             date: "2016-07-01",
-            name: "wangxiaohu"
+            name: "wangxiaohu",
           },
           {
             id: 86,
             date: "2016-07-02",
-            name: "wangxiaohu"
-          }
-        ]
-      }
-    ]
+            name: "wangxiaohu",
+          },
+        ],
+      },
+    ],
   },
   {
     id: 4,
     date: "2016-05-03",
-    name: "wangxiaohu"
-  }
+    name: "wangxiaohu",
+  },
 ];
 
 // 格式化数据(子元素赋值父元素所在下标)
@@ -142,15 +142,28 @@ const handleSelectionChange = (val: any) => {
 
 <template>
   <!-- 折叠 -->
-  <el-table ref="multipleTable" :data="tableData2" style="width: 100%; margin-bottom: 20px" row-key="id" border default-expand-all @selection-change="handleSelectionChange"
-    header-row-class-name="tree-table-header">
+  <el-table
+    ref="multipleTable"
+    :data="tableData2"
+    style="width: 100%; margin-bottom: 20px"
+    row-key="id"
+    border
+    default-expand-all
+    @selection-change="handleSelectionChange"
+    header-row-class-name="tree-table-header"
+  >
     <el-table-column type="selection" width="55">
       <!-- 被 selecttion 覆盖，不生效 -->
       <!-- <template slot="header" #header="scope">
         <span>assa</span>
       </template> -->
       <template #default="scope">
-        <el-checkbox v-show="scope.$index!==0" v-model="scope.row.rowCheck" @change="pageCheckEv(scope)" :indeterminate="scope.row.halfCheck"></el-checkbox>
+        <el-checkbox
+          v-show="scope.$index !== 0"
+          v-model="scope.row.rowCheck"
+          @change="pageCheckEv(scope)"
+          :indeterminate="scope.row.halfCheck"
+        ></el-checkbox>
       </template>
     </el-table-column>
     <el-table-column prop="date" label="date" sortable width="180" />
@@ -165,5 +178,3 @@ const handleSelectionChange = (val: any) => {
   }
 }
 </style>
-
- 

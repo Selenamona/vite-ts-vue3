@@ -6,8 +6,9 @@ import TableMergeCheckVue from "./Table-merge-check.vue";
 </script>
 
 <template>
+  123
   <!-- 表格-树结构-多选 -->
-  <!-- <TableTreeSelectVue /> -->
+  <TableTreeSelectVue />
 
   <!-- 表格-合并行 -->
   <!-- <TableMergeVue /> -->

@@ -72,8 +72,11 @@ export function isRegExp(val: unknown): val is RegExp {
   return is(val, 'RegExp');
 }
 
-export function isArray(val: any): val is Array<any> {
-  return val && Array.isArray(val);
+export const isArray = (arg: any) => {
+  if (typeof Array.isArray === 'undefined') {
+    return Object.prototype.toString.call(arg) === '[object Array]'
+  }
+  return Array.isArray(arg)
 }
 
 export function isWindow(val: any): val is Window {
